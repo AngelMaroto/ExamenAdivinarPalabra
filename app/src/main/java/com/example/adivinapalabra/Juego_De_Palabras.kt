@@ -2,26 +2,37 @@ package com.example.adivinapalabra
 
 class Juego_De_Palabras() {
 
-    private var palabras =listOf<String>("Arrancar", "Patata", "Juego","Pizarra")
-    private val pistas = listOf<String>("Faltan caracteres", "Cambio de vocal", "Posicion del caracter","Cambio consonante")
+    // Lista de palabras disponibles
+    private var palabras = listOf(
+        "Arrancar", "Patata", "Juego", "Pizarra", "Mando",
+        "Coche", "Casa", "Lapiz", "Ventana", "Libro"
+    )
+
+    // Lista de pistas (4 tipos)
+    private val pistas = listOf(
+        "Faltan caracteres",
+        "Cambio de vocal",
+        "Posición del carácter",
+        "Palabra invertida"
+    )
+
+    // Puntos iniciales del jugador
     private var puntos = 2
-
         get() = field
-        set(value) {
-            field=value
-        }
+        set(value) { field = value }
 
-    constructor(palabras: ArrayList<String>):this(){
-        this.palabras=palabras
+    // Constructor secundario (permite pasar lista propia)
+    constructor(palabras: ArrayList<String>) : this() {
+        this.palabras = palabras
     }
 
-    fun obtener_palabra():String{
+    // Devuelve palabra aleatoria
+    fun obtener_palabra(): String {
         return palabras.random()
     }
 
-    fun obtener_Pista(num:Int): String{
-        return pistas.get(num)
+    // Devuelve la pista correspondiente al tipo
+    fun obtener_Pista(num: Int): String {
+        return pistas[num]
     }
-
-
 }
